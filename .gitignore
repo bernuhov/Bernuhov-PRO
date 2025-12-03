@@ -44,6 +44,9 @@ ENV/
 *.db
 *.sqlite3
 
+# User data
+user_progress.json
+
 # OS
 .DS_Store
 Thumbs.db
