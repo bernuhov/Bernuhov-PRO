@@ -216,7 +216,8 @@ async def finish_quiz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     complete_lesson(user_id, lesson_id, percentage)
     
     # Clear quiz state
-    del user_quiz_state[user_id]
+    if user_id in user_quiz_state:
+        del user_quiz_state[user_id]
     
     result_text = f"""
 🎉 **Quiz Complete!**

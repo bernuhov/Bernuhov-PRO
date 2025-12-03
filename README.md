@@ -115,6 +115,8 @@ To add new lessons, edit `lessons.py` and add a new lesson dictionary to the `le
 }
 ```
 
+**Note**: The current lessons use placeholder video URLs (`example1`, `example2`, etc.). Before deployment, replace these with actual educational video URLs from YouTube or other video platforms.
+
 ## Technical Details
 
 ### Dependencies

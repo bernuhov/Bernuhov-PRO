@@ -5,9 +5,13 @@ Stores user progress in a simple JSON file-based system.
 
 import json
 import os
+import logging
 from datetime import datetime
 
 PROGRESS_FILE = "user_progress.json"
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 def load_progress():
     """Load user progress from file."""
@@ -21,8 +25,12 @@ def load_progress():
 
 def save_progress(progress_data):
     """Save user progress to file."""
-    with open(PROGRESS_FILE, "w") as f:
-        json.dump(progress_data, f, indent=2)
+    try:
+        with open(PROGRESS_FILE, "w") as f:
+            json.dump(progress_data, f, indent=2)
+    except (IOError, OSError) as e:
+        logger.error(f"Failed to save user progress: {e}")
+        raise
 
 def initialize_user(user_id):
     """Initialize a new user in the educational pipeline."""
